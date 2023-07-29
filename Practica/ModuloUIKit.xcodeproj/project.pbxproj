@@ -63,34 +63,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B436BE562A4FD25B0079872A /* Movies */ = {
+		49EE6A5F2A74A21500D09797 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B436BE5B2A4FD2FC0079872A /* MoviesViewController.swift */,
+				B47B98922A579FEB0074727A /* MoviesData.swift */,
+				B47B98972A57BC6A0074727A /* CollectionMovieObject.swift */,
 				B436BE592A4FD2DC0079872A /* MovieObj.swift */,
-				B4B744ED2A53B7C300D76F6A /* MoviesTableViewCell.swift */,
-				B47B98942A57A8810074727A /* DetalleViewController.swift */,
 			);
-			path = Movies;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49EE6A602A74A29F00D09797 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B4ADB6D32A4BC1F2007D326C /* AppDelegate.swift */,
+				B4ADB6D52A4BC1F2007D326C /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		B436BE562A4FD25B0079872A /* VIews */ = {
+			isa = PBXGroup;
+			children = (
+				B4ADB6D72A4BC1F2007D326C /* ViewController.swift */,
+				B415149B2A4D19DD00880125 /* LoginViewController.swift */,
+				B415149D2A4D281400880125 /* RegistroViewController.swift */,
+				B436BE5B2A4FD2FC0079872A /* MoviesViewController.swift */,
+				B47B98942A57A8810074727A /* DetalleViewController.swift */,
+				B47B989B2A590F2B0074727A /* GridViewController.swift */,
+				B4B744ED2A53B7C300D76F6A /* MoviesTableViewCell.swift */,
+				B47B98992A58F0000074727A /* MovieCollectionViewCell.swift */,
+			);
+			path = VIews;
 			sourceTree = "<group>";
 		};
 		B47B988D2A5783760074727A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B415149F2A4D2BCE00880125 /* Extras.swift */,
 				B47B988E2A5783760074727A /* constants.swift */,
 				B47B988F2A5783760074727A /* UIColor++.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		B47B98962A57BC2B0074727A /* MoviesCollection */ = {
-			isa = PBXGroup;
-			children = (
-				B47B98972A57BC6A0074727A /* CollectionMovieObject.swift */,
-				B47B98992A58F0000074727A /* MovieCollectionViewCell.swift */,
-				B47B989B2A590F2B0074727A /* GridViewController.swift */,
-			);
-			path = MoviesCollection;
 			sourceTree = "<group>";
 		};
 		B4ADB6C72A4BC1F2007D326C = {
@@ -112,20 +126,14 @@
 		B4ADB6D22A4BC1F2007D326C /* ModuloUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				B47B98962A57BC2B0074727A /* MoviesCollection */,
+				49EE6A602A74A29F00D09797 /* Delegates */,
+				49EE6A5F2A74A21500D09797 /* Model */,
 				B47B988D2A5783760074727A /* Extensions */,
-				B436BE562A4FD25B0079872A /* Movies */,
-				B4ADB6D32A4BC1F2007D326C /* AppDelegate.swift */,
-				B4ADB6D52A4BC1F2007D326C /* SceneDelegate.swift */,
-				B415149D2A4D281400880125 /* RegistroViewController.swift */,
-				B4ADB6D72A4BC1F2007D326C /* ViewController.swift */,
-				B415149B2A4D19DD00880125 /* LoginViewController.swift */,
+				B436BE562A4FD25B0079872A /* VIews */,
 				B4ADB6D92A4BC1F2007D326C /* Main.storyboard */,
 				B4ADB6DC2A4BC1F3007D326C /* Assets.xcassets */,
 				B4ADB6DE2A4BC1F3007D326C /* LaunchScreen.storyboard */,
 				B4ADB6E12A4BC1F3007D326C /* Info.plist */,
-				B415149F2A4D2BCE00880125 /* Extras.swift */,
-				B47B98922A579FEB0074727A /* MoviesData.swift */,
 			);
 			path = ModuloUIKit;
 			sourceTree = "<group>";
@@ -368,6 +376,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -395,6 +404,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

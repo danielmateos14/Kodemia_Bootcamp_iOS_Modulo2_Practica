@@ -14,8 +14,8 @@ class MovieCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
-        self.backgroundColor = .black
-        imageMovie = UIImageView(frame: CGRect(x: 23, y: 8, width: Constants.width/4, height: Constants.height/4.6))
+        self.backgroundColor = Extras().myViewBackgroundColor
+        imageMovie = UIImageView(frame: CGRect(x: 23, y: 8, width: Constants.width/4, height: Constants.height/3.6))
         imageMovie?.backgroundColor = UIColor.black
         imageMovie?.contentMode = .scaleAspectFill
         imageMovie?.image = UIImage(named: "logo")

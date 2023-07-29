@@ -20,29 +20,31 @@ class MoviesTableViewCell: UITableViewCell {
     init(movie: Movie){
         super.init(style: .default, reuseIdentifier: nil)
         self.movie = movie
-        self.backgroundColor = .white
+        self.backgroundColor = Extras().myViewBackgroundColor
         
         initUI()
     }
     
     func initUI(){
         
-        movieContent = UIView(frame: CGRect(x: 5, y: 5, width: Constants.width - 10 , height: Constants.height/7))
-        movieContent?.backgroundColor = .white
-        movieContent?.layer.cornerRadius = 10
+        movieContent = UIView(frame: CGRect(x: 0, y: 0, width: Constants.width/1 , height: Constants.height/7))
+        movieContent?.backgroundColor = Extras().myViewBackgroundColor
+//        movieContent?.layer.cornerRadius = 10
         self.addSubview(movieContent!)
         
         
         movieName = UILabel(frame: CGRect(x: 80, y: 10, width: 250, height: 20))
         movieName?.text = movie?.name
         movieName?.textAlignment = .left
-        movieName?.font = .boldSystemFont(ofSize: 18)
+        movieName?.font = .boldSystemFont(ofSize: 22)
+        movieName?.textColor = .gray
         movieContent?.addSubview(movieName!)
         
         movieDirector = UILabel(frame: CGRect(x: 80, y: 40, width: 250, height: 20))
         movieDirector?.text = "Director: \(movie?.director ?? "")"
         movieDirector?.textAlignment = .left
-        movieDirector?.font = .boldSystemFont(ofSize: 18)
+        movieDirector?.font = .boldSystemFont(ofSize: 16)
+        movieDirector?.textColor = Extras().titleColor
         movieContent?.addSubview(movieDirector!)
         
 //        movieDescription = UILabel(frame: CGRect(x: 80, y: 70, width: 250, height: 20))
@@ -55,7 +57,8 @@ class MoviesTableViewCell: UITableViewCell {
         movieYear = UILabel(frame: CGRect(x: 80, y: 70, width: 250, height: 20))
         movieYear?.text = "Año: \(movie?.year ?? 0)"
         movieYear?.textAlignment = .left
-        movieYear?.font = .boldSystemFont(ofSize: 18)
+        movieYear?.font = .boldSystemFont(ofSize: 16)
+        movieYear?.textColor = Extras().titleColor
         movieContent?.addSubview(movieYear!)
         
         movieCover = UIImageView(frame: CGRect(x: 10, y: 5, width: 60, height: 80))

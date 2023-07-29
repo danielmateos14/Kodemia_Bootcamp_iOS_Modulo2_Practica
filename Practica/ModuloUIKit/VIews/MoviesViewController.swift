@@ -14,6 +14,8 @@ class MoviesViewController: UIViewController {
     var tableView: UITableView?
     var moviesCollection: UICollectionView?
     var buttonShow: UIButton?
+    var titleLabel: UILabel?
+    var buttonBack: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +30,39 @@ class MoviesViewController: UIViewController {
     
     
     func initUI(){
-        view.backgroundColor = .white
+        view.backgroundColor = Extras().myViewBackgroundColor
+        
+        //buttonBack
+        buttonBack = UIButton()
+//        buttonBack?.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+        buttonBack?.setTitle("Logout", for: .normal)
+        buttonBack?.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        buttonBack?.addTarget(self, action: #selector(backToMain), for: .touchUpInside)
+        view.addSubview(buttonBack!)
+        buttonBack?.translatesAutoresizingMaskIntoConstraints = false
+        buttonBack?.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        buttonBack?.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        buttonBack?.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 2.5).isActive = true
+        buttonBack?.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        
+        titleLabel = UILabel()
+        titleLabel?.textAlignment = .center
+        titleLabel?.textColor = Extras().titleColor
+        titleLabel?.textAlignment = .center
+        titleLabel?.font = UIFont(name: "American Typewriter Bold", size: 20)
+        titleLabel?.text = "Peliculas Piratas Fireplay"
+        view.addSubview(titleLabel!)
+        titleLabel?.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel?.topAnchor.constraint(equalTo: view.topAnchor, constant:20).isActive = true
+        titleLabel?.leadingAnchor.constraint(equalTo: buttonBack!.trailingAnchor, constant:0).isActive = true
+        titleLabel?.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:0).isActive = true
+        
+        
         //        tableView = UITableView(frame: CGRect(x: 10, y: 40, width: 350, height: 400))
         tableView = UITableView()
         tableView?.delegate = self
         tableView?.dataSource = self
+        tableView?.backgroundColor = Extras().myViewBackgroundColor
         view.addSubview(tableView!)
         tableView?.translatesAutoresizingMaskIntoConstraints = false
         tableView?.widthAnchor.constraint(equalToConstant: 100).isActive = true
@@ -60,8 +90,9 @@ class MoviesViewController: UIViewController {
         let buttonShow = UIButton()
         buttonShow.setTitleColor(UIColor.white, for: .normal)
         buttonShow.setTitle("Ver mas", for: .normal)
-        buttonShow.backgroundColor = UIColor.black
-        buttonShow.layer.cornerRadius = 5
+        buttonShow.titleLabel?.font = UIFont.systemFont(ofSize: 25)
+        buttonShow.backgroundColor = Extras().titleColor
+        buttonShow.layer.cornerRadius = 10
         buttonShow.addTarget(self, action: #selector(goToGrid), for: .touchUpInside)
         buttonShow.translatesAutoresizingMaskIntoConstraints = false
         self.buttonShow = buttonShow
@@ -74,6 +105,12 @@ class MoviesViewController: UIViewController {
         present(goToGrid, animated: true)
     }
     
+    @objc func backToMain(){
+        let goToMain = ViewController()
+        goToMain.modalPresentationStyle = .fullScreen
+        present(goToMain, animated: true)
+    }
+    
     func setConstraints(){
         
         guard let moviesCollectionView = moviesCollection, let buttonShow = buttonShow else {return}
@@ -83,7 +120,7 @@ class MoviesViewController: UIViewController {
         view.addSubview(moviesCollectionView)
         
         NSLayoutConstraint.activate([
-            moviesCollectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            moviesCollectionView.topAnchor.constraint(equalTo: titleLabel!.topAnchor, constant: 30),
             moviesCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             moviesCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             moviesCollectionView.bottomAnchor.constraint(equalTo: buttonShow.topAnchor, constant: -30),
@@ -96,11 +133,11 @@ class MoviesViewController: UIViewController {
         NSLayoutConstraint.activate([
             buttonShow.topAnchor.constraint(equalTo: moviesCollectionView.bottomAnchor, constant: 0),
             buttonShow.bottomAnchor.constraint(equalTo: tableView!.topAnchor, constant: -30),
-            buttonShow.leadingAnchor.constraint(equalTo: view!.leadingAnchor, constant: 8),
-            buttonShow.trailingAnchor.constraint(equalTo: view!.trailingAnchor, constant: -8),
+            buttonShow.leadingAnchor.constraint(equalTo: view!.leadingAnchor, constant: 120),
+            buttonShow.trailingAnchor.constraint(equalTo: view!.trailingAnchor, constant: -120),
 //            buttonShow.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            buttonShow.widthAnchor.constraint(equalToConstant: 100),
-            buttonShow.heightAnchor.constraint(equalToConstant: 20)
+//            buttonShow.widthAnchor.constraint(equalToConstant: 2),
+            buttonShow.heightAnchor.constraint(equalToConstant: 35)
         ])
     }
     
@@ -147,7 +184,7 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
         
-        view.backgroundColor = .white
+        view.backgroundColor = Extras().butonTitleBackgroundColor
         let image = UIImageView(frame: CGRect(x: 5, y: 5, width: 30, height: 30))
         image.image = UIImage(named: "movIcon")
         image.tintColor = .backgroundBrownColor

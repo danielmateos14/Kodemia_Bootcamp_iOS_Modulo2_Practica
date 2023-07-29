@@ -22,7 +22,7 @@ class DetalleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .black
+        view.backgroundColor = Extras().myViewBackgroundColor
         initUI()
         
     }
@@ -44,7 +44,7 @@ class DetalleViewController: UIViewController {
         view.addSubview(movieContent!)
         
         
-        movieName = UILabel(frame: CGRect(x: 20, y: 200, width: 300, height: 120))
+        movieName = UILabel(frame: CGRect(x: 20, y: 200, width: 350, height: 120))
         movieName?.text = movie?.name
         movieName?.textAlignment = .center
         movieName?.textColor = .white

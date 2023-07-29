@@ -35,6 +35,11 @@ class LoginViewController: UIViewController {
         initialComponents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNeedsStatusBarAppearanceUpdate()
+    }
+    
 //    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 //            super.viewWillTransition(to: size, with: coordinator)
 //            if UIDevice.current.orientation.isLandscape {
@@ -173,6 +178,7 @@ class LoginViewController: UIViewController {
         buttonFacebook?.titleLabel?.font = UIFont(name: "Arial Bold", size: 25)
         buttonFacebook?.setTitleColor(UIColor.white, for:UIControl.State.normal)
 //        buttonFacebook?.layer.cornerRadius = 20
+        buttonFacebook?.addTarget(self, action: #selector(navegarMovies), for: .touchUpInside)
         view!.addSubview(buttonFacebook!)
         buttonFacebook?.translatesAutoresizingMaskIntoConstraints = false
         buttonFacebook?.widthAnchor.constraint(equalToConstant: 330).isActive = true
@@ -185,6 +191,7 @@ class LoginViewController: UIViewController {
         buttonGoogle?.setTitle("   Iniciar con Google", for: .normal)
         buttonGoogle?.titleLabel?.font = UIFont(name: "Arial Bold", size: 25)
         buttonGoogle?.setTitleColor(UIColor.white, for:UIControl.State.normal)
+        buttonGoogle?.addTarget(self, action: #selector(navegarMovies), for: .touchUpInside)
 //        buttonFacebook?.layer.cornerRadius = 20
         view!.addSubview(buttonGoogle!)
         buttonGoogle?.translatesAutoresizingMaskIntoConstraints = false
@@ -217,6 +224,10 @@ class LoginViewController: UIViewController {
         let moviesVC = MoviesViewController()
         moviesVC.modalPresentationStyle = .fullScreen
         present(moviesVC, animated: true)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .darkContent
     }
     
 }

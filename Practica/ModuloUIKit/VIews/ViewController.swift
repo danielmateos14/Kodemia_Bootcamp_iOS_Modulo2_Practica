@@ -104,7 +104,7 @@ class ViewController: UIViewController {
         signButton?.topAnchor.constraint(equalTo: loginButton!.bottomAnchor, constant: 30).isActive = true
 //
         loginImage = UIImageView()
-        loginImage?.image = UIImage(named: "fi")
+        loginImage?.image = UIImage(named: "pirata2")
         loginImage?.contentMode = .scaleAspectFit
 //        let templateImage = loginImage?.image?.withRenderingMode(.alwaysTemplate)
 //        loginImage?.image = templateImage

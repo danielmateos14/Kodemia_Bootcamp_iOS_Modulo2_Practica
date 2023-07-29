@@ -24,7 +24,7 @@ class GridViewController: UIViewController {
     
     
     func initUI(){
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         moviesCollection = {
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .vertical

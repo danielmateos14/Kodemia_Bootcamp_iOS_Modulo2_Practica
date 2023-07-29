@@ -19,6 +19,7 @@ class RegistroViewController: UIViewController {
     var lineLabel2: UILabel?
     var lineLabel3: UILabel?
     var buttonRegistro: UIButton?
+    var buttonReturnLogin: UIButton?
     var imageViewName: UIImageView?
     var imageViewMail: UIImageView?
     var imageViewPassword: UIImageView?
@@ -161,6 +162,20 @@ class RegistroViewController: UIViewController {
         buttonRegistro?.topAnchor.constraint(equalTo: viewTextFields!.bottomAnchor, constant:40).isActive = true
         buttonRegistro?.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
         
+        buttonReturnLogin = UIButton()
+        buttonReturnLogin?.backgroundColor = Extras().titleColor
+        buttonReturnLogin?.setTitle("Login", for: .normal)
+        buttonReturnLogin?.titleLabel?.font = UIFont(name: "American Typewriter Bold", size: 25)
+        buttonReturnLogin?.setTitleColor(Extras().butonTitleBackgroundColor, for:UIControl.State.normal)
+        buttonReturnLogin?.layer.cornerRadius = 20
+        buttonReturnLogin?.addTarget(self, action: #selector(returnLogin), for: .touchUpInside)
+        view!.addSubview(buttonReturnLogin!)
+        buttonReturnLogin?.translatesAutoresizingMaskIntoConstraints = false
+        buttonReturnLogin?.widthAnchor.constraint(equalToConstant: 230).isActive = true
+        buttonReturnLogin?.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        buttonReturnLogin?.topAnchor.constraint(equalTo: buttonRegistro!.bottomAnchor, constant:20).isActive = true
+        buttonReturnLogin?.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        
         imageViewName = UIImageView()
         imageViewName?.image = UIImage(systemName: "person.fill")
         imageViewName?.contentMode = .scaleAspectFit
@@ -206,6 +221,13 @@ class RegistroViewController: UIViewController {
         let siginVC = MoviesViewController()
         siginVC.modalPresentationStyle = .fullScreen
         present(siginVC, animated: true)
+    }
+    
+    @objc func returnLogin(){
+        print("Regresa a loginn")
+        let loginVC = LoginViewController()
+        loginVC.modalPresentationStyle = .fullScreen
+        present(loginVC, animated: true)
     }
 
 }
